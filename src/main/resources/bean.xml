@@ -10,18 +10,31 @@
 
     <context:component-scan base-package="com.heima.service" ></context:component-scan>
 
-    <bean id="accountService" class="com.heima.service.AccountService" scope="singleton"></bean>
+<!--    <bean id="accountService" class="com.heima.service.AccountService" scope="singleton"></bean>暂时隐藏掉 通过注解方式-->
 
 
-    <bean id="logger" class="com.heima.service.Logger"> </bean>
+<!--    <bean id="logger" class="com.heima.service.Logger"> </bean> 暂时隐藏掉 通过注解方式-->
 
-    <aop:config>
-        <aop:aspect id="mylog" ref="logger">
-            <aop:before method="writeLog" pointcut="execution(public void com.heima.service.AccountService.saveAccount())"></aop:before>
-            <aop:after method="tailLog" pointcut="execution(public void com.heima.service.AccountService.saveAccount())"></aop:after>
-        </aop:aspect>
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="p1" expression="execution( * com.heima.service.*.*(..))"/>-->
+<!--        <aop:aspect id="mylog" ref="logger">-->
+<!--&lt;!&ndash;            <aop:before method="writeLog" pointcut-ref="p1"></aop:before>&ndash;&gt;-->
+<!--&lt;!&ndash;            <aop:after-returning method="returnAfter" pointcut-ref="p1"></aop:after-returning>&ndash;&gt;-->
+<!--&lt;!&ndash;            <aop:after method="tailLog" pointcut-ref="p1"></aop:after>&ndash;&gt;-->
 
-    </aop:config>
+<!--&lt;!&ndash;            &lt;!&ndash;            <aop:after method="tailLog" pointcut="execution(public void com.heima.service.AccountService.saveAccount())"></aop:after>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            <aop:after-throwing method="throwLog" pointcut-ref="p1"></aop:after-throwing>&ndash;&gt;-->
+<!--            <aop:around method="arountLog" pointcut-ref="p1"></aop:around>-->
+
+<!--        </aop:aspect>-->
+
+<!--    </aop:config>-->
+
+
+<!--    开启注解AOP的支持-->
+    <aop:aspectj-autoproxy ></aop:aspectj-autoproxy>
+
+
 
 
 
