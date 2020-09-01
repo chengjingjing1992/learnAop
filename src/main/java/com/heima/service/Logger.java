@@ -2,6 +2,7 @@ package com.heima.service;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect // 切面类
 public class Logger {
-    @Pointcut("execution( * com.heima.service.*.*(..))")
+//    @Pointcut("execution( * com.heima.service.*.*(..))")
     public void pt1(){
 
     }
@@ -19,21 +20,21 @@ public class Logger {
     public void writeLog(){
         System.out.println("日志记录.....");
     }
-    @After("pt1()")
+//    @After("pt1()")
     public void tailLog(){
         System.out.println("最终日志......");
     }
-    @AfterReturning("pt1()")
+//    @AfterReturning("pt1()")
     public void returnAfter(){
         System.out.println("后置通知.....");
 
     }
-    @AfterThrowing("pt1()")
+//    @AfterThrowing("pt1()")
     public void throwLog(){
         System.out.println("异常日志.....");
 
     }
-    @Around("pt1()")
+//    @Around("pt1()")
     public Object arountLog(ProceedingJoinPoint pjp) throws Throwable {
 
 
@@ -43,6 +44,7 @@ public class Logger {
             System.out.println("arountLog.....前置通知");
 
             obj=pjp.proceed(args);
+
             System.out.println("arountLog.....后置通知");
             return obj;
 

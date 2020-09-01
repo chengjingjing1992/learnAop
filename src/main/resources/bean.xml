@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.heima.service" ></context:component-scan>
+    <context:component-scan base-package="com.heima.*" ></context:component-scan>
 
 <!--    <bean id="accountService" class="com.heima.service.AccountService" scope="singleton"></bean>暂时隐藏掉 通过注解方式-->
 
